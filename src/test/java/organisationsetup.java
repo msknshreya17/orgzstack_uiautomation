@@ -1,6 +1,10 @@
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 public class organisationsetup {
 
 
@@ -31,8 +35,8 @@ Thread.sleep(1500);
 driver.findElement(By.xpath("(//button[normalize-space()='Go Back'])[1]")).click();
 Thread.sleep(500);
 driver.findElement(By.name("login_button")).click();
-Thread.sleep(6000);
-driver.findElement(By.xpath("(//select[@class='border border-gray-150 rounded-lg text-black h-8 pl-4 pr-8 bg-white hover:border-gray-400'])")).click();
+WebDriverWait w = new WebDriverWait(driver, Duration.ofSeconds(30));
+w.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//select[@class='border border-gray-150 rounded-lg text-black h-8 pl-4 pr-8 bg-white hover:border-gray-400'])")));
 Thread.sleep(1500);
 driver.findElement(By.xpath("//option[@value='64c22b859eadf63a01fb8dcf']")).click();
 driver.findElement(By.xpath("//div[normalize-space()='Organisation Setup']")).click();

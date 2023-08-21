@@ -1,6 +1,10 @@
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LoginPage {
 
@@ -23,23 +27,23 @@ driver.manage().window().maximize();
 
          //signup page
 
-driver.findElement(By.xpath("(//img[@alt='Signup Image'])[1]")).click();
-driver.findElement(By.name("name")).sendKeys("Humane Security Society Industrial Hub");
-driver.findElement(By.name("no_of_employee")).sendKeys("25000");
-driver.findElement(By.xpath("//div[@id='demo-simple-select']")).click();
-Thread.sleep(1500); 
-driver.findElement(By.xpath("//li[normalize-space()='India']")).click();
-driver.findElement(By.name("orgemail")).sendKeys("sikchhalol608@muzitp.com");
-driver.findElement(By.name("authorisedPerson_name")).sendKeys("Ashish Agnihotri");
-driver.findElement(By.name("authorisedPerson_mobile_no")).sendKeys("9856344356");
-Thread.sleep(1500); 
-//ok handle alert
+//driver.findElement(By.xpath("(//img[@alt='Signup Image'])[1]")).click();
+//driver.findElement(By.name("name")).sendKeys("Humane Security Society Industrial Hub");
+//driver.findElement(By.name("no_of_employee")).sendKeys("25000");
+//driver.findElement(By.xpath("//div[@id='demo-simple-select']")).click();
+//Thread.sleep(1500); 
+//driver.findElement(By.xpath("//li[normalize-space()='India']")).click();
+//driver.findElement(By.name("orgemail")).sendKeys("sikchhalol608@muzitp.com");
+//driver.findElement(By.name("authorisedPerson_name")).sendKeys("Ashish Agnihotri");
+//driver.findElement(By.name("authorisedPerson_mobile_no")).sendKeys("9856344356");
+//Thread.sleep(1500); 
+////ok handle alert
 //driver.switchTo().alert().accept();
 //driver.switchTo().alert().accept();
-driver.findElement(By.xpath("//button[normalize-space()='Signup']")).click();
-driver.findElement(By.xpath("//a[normalize-space()='Have an account? Sign In']")).click();
-Thread.sleep(1500);                  
-driver.findElement(By.xpath("(//button[normalize-space()='Login'])[1]")).click();
+//driver.findElement(By.xpath("//button[normalize-space()='Signup']")).click();
+//driver.findElement(By.xpath("//a[normalize-space()='Have an account? Sign In']")).click();
+//Thread.sleep(1500);                  
+//driver.findElement(By.xpath("(//button[normalize-space()='Login'])[1]")).click();
 
 driver.findElement(By.name("email")).sendKeys("demotest@orgzstack.com");
 driver.findElement(By.id("outlined-adornment-password")).sendKeys("changeMeNow");
@@ -52,12 +56,14 @@ Thread.sleep(1500);
 driver.findElement(By.xpath("(//button[normalize-space()='Go Back'])[1]")).click();
 Thread.sleep(1500);
 driver.findElement(By.name("login_button")).click();      
-Thread.sleep(9000);
+
 
 
 //       Create orgination
 
-driver.findElement(By.xpath("(//*[name()='svg'][@class='MuiSvgIcon-root'])[3]")).click();
+WebDriverWait w = new WebDriverWait(driver, Duration.ofSeconds(30));
+w.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//*[name()='svg'][@class='MuiSvgIcon-root'])[3]")));
+//driver.findElement(By.xpath("(//*[name()='svg'][@class='MuiSvgIcon-root'])[3]")).click();
 Thread.sleep(1500);
 driver.findElement(By.name("name")).sendKeys("Testing Club");
 driver.findElement(By.name("code")).sendKeys("TCLUB345");

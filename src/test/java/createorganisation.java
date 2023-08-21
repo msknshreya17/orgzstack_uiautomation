@@ -1,6 +1,10 @@
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 public class createorganisation {
 
 
@@ -30,12 +34,13 @@ Thread.sleep(1500);
 driver.findElement(By.xpath("(//button[normalize-space()='Go Back'])[1]")).click();
 Thread.sleep(1500);
 driver.findElement(By.name("login_button")).click();
-Thread.sleep(9000);
+
 
 
 //       Create orgination
 
-driver.findElement(By.xpath("(//*[name()='svg'][@class='MuiSvgIcon-root'])[3]")).click();
+WebDriverWait w = new WebDriverWait(driver, Duration.ofSeconds(30));
+w.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//*[name()='svg'][@class='MuiSvgIcon-root'])[3]")));
 Thread.sleep(1500);
 driver.findElement(By.name("name")).sendKeys("Testing Club");
 driver.findElement(By.name("code")).sendKeys("TCLUB345");
